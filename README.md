@@ -14,11 +14,11 @@ With CocoaSlideShow you can:
   * export lightweight JPEG thumbnails, say for Facebook upload [screencast](http://seriot.ch/software/desktop/CocoaSlideShow/screencasts/resize_images.mov)
   * export KML files to Google Maps or Google Earth [screencast](http://seriot.ch/software/desktop/CocoaSlideShow/screencasts/export_kml.mov)
 
-_I really liked the simplicity of !CocoaSlideShow. It's refreshing to use a straightforward, elegant photo viewer that does exactly what it's supposed to with no fuss._ [-Nick Mead, Softonic](http://cocoaslideshow.en.softonic.com/mac)
+_I really liked the simplicity of CocoaSlideShow. It's refreshing to use a straightforward, elegant photo viewer that does exactly what it's supposed to with no fuss._ [-Nick Mead, Softonic](http://cocoaslideshow.en.softonic.com/mac)
 
-![CocoaSlideShow](https://github.com/nst/RuntimeBrowser/raw/master/art/CocoaSlideShow_screenshot_small.jpg)
-![CocoaSlideShow](https://github.com/nst/RuntimeBrowser/raw/master/artCocoaSlideShow_Spotlight_screenshot_small.png)
-![CocoaSlideShow](https://github.com/nst/RuntimeBrowser/raw/master/artCocoaSlideShow_screenshot_map_small.png)
+![CocoaSlideShow](https://raw.github.com/nst/CocoaSlideShow/master/art/CocoaSlideShow_screenshot_small.jpg)
+![CocoaSlideShow](https://raw.github.com/nst/CocoaSlideShow/master/art/CocoaSlideShow_Spotlight_screenshot_small.png)
+![CocoaSlideShow](https://raw.github.com/nst/CocoaSlideShow/master/art/CocoaSlideShow_screenshot_map_small.png)
 
 CocoaSlideShow embeds [EpegWrapper](http://www.entropy.ch/software/macosx/#epegwrapper), a Cocoa Framework for fast thumbnails generation, by entropy.ch.
 <pre>
