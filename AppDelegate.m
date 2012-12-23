@@ -131,53 +131,52 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 	}	
 }
 
-- (NSString *)chooseDirectory {
+- (NSURL *)chooseDirectoryURL {
     NSOpenPanel *oPanel = [NSOpenPanel openPanel];
     [oPanel setAllowsMultipleSelection:NO];
     [oPanel setCanChooseFiles:NO];
     [oPanel setCanChooseDirectories:YES];
 
-    int result = [oPanel runModalForDirectory:nil
-                                         file:nil
-                                        types:nil];
-    NSString *dir = nil;
+    int result = [oPanel runModal];
+    
+    NSURL *dirURL = nil;
 	
 	if (result == NSOKButton) {
-		dir = [[oPanel filenames] lastObject];
+		dirURL = [[oPanel URLs] lastObject];
     }
 	
-	return dir;
+	return dirURL;
 }
 
 - (IBAction)open:(id)sender {
-	NSString *dir = [self chooseDirectory];
-	if(dir) {
-		[self setupImagesControllerWithDir:dir recursive:YES];
+	NSURL *dirURL = [self chooseDirectoryURL];
+	if([dirURL isFileURL]) {
+		[self setupImagesControllerWithDir:[dirURL path] recursive:YES];
 	}
 }
 
 - (IBAction)setDirectory:(id)sender {
-	NSString *dir = [self chooseDirectory];
-	if(dir) {
-		[self setupImagesControllerWithDir:dir recursive:YES];
-		[[NSUserDefaults standardUserDefaults] setValue:dir forKey:kImagesDirectory];
+	NSURL *dirURL = [self chooseDirectoryURL];
+	if([dirURL isFileURL]) {
+		[self setupImagesControllerWithDir:[dirURL path] recursive:YES];
+		[[NSUserDefaults standardUserDefaults] setValue:[dirURL path] forKey:kImagesDirectory];
 	}
 }
 
 - (IBAction)addDirectory:(id)sender {
-	NSString *dir = [self chooseDirectory];
-	if(dir) {
-		[imagesController addDirFiles:dir];
+	NSURL *dirURL = [self chooseDirectoryURL];
+	if([dirURL isFileURL]) {
+		[imagesController addDirFiles:[dirURL path]];
 	}
 }
 
 - (IBAction)exportToDirectory:(id)sender {
-	NSString *destDirectory = [self chooseDirectory];
-	if(!destDirectory) {
+	NSURL *exportDirectoryURL = [self chooseDirectoryURL];
+	if(!exportDirectoryURL) {
 		return;
 	}
 
-	[[imagesController selectedObjects] makeObjectsPerformSelector:@selector(copyToDirectory:) withObject:destDirectory];
+	[[imagesController selectedObjects] makeObjectsPerformSelector:@selector(copyToDirectory:) withObject:exportDirectoryURL];
 	[self playSuccessSound];
 }
 
@@ -526,7 +525,7 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 
 #pragma KML File Export
 
-- (NSString *)chooseKMLExportDirectory {
+- (NSURL *)chooseKMLExportDirectoryURL {
     NSSavePanel *sPanel = [NSSavePanel savePanel];
 	
 	[sPanel setAccessoryView:kmlSavePanelAccessoryView];
@@ -534,9 +533,12 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 	
 	NSString *desktopPath = [NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 
-	int runResult = [sPanel runModalForDirectory:desktopPath file:@"KMLExport"];
+    [sPanel setNameFieldStringValue:@"KMLExport"];
+    [sPanel setDirectoryURL:[NSURL URLWithString:desktopPath]];
+    
+	int runResult = [sPanel runModal];
 	
-	return (runResult == NSOKButton) ? [sPanel filename] : nil;
+	return (runResult == NSOKButton) ? [sPanel URL] : nil;
 }
 
 - (IBAction)exportKMLToFile:(id)sender {
@@ -544,29 +546,34 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 
 	[self setValue:[NSNumber numberWithBool:YES] forKey:@"isExporting"];
 	
-	NSString *dir = [self chooseKMLExportDirectory];
-	if(!dir) return;
+	NSURL *dirURL = [self chooseKMLExportDirectoryURL];
 
+	if([dirURL isFileURL] == NO) return;
+    
+    if(!dirURL) return;
+
+    NSString *dirPath = [dirURL path];
+    
 	BOOL addThumbnails = [[NSUserDefaults standardUserDefaults] boolForKey:@"IncludeThumbsInKMLExport"];
 
 	NSError *error = nil;
-	BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:&error];
+	BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:dirPath withIntermediateDirectories:YES attributes:nil error:&error];
 	if(!success) {
-		NSLog(@"Error: can't create dir at path %@, error:%@", dir, error);
+		NSLog(@"Error: can't create dir at path %@, error:%@", dirPath, error);
 		//return;
 	}
 	
-	NSString *kmlFilePath = [dir stringByAppendingPathComponent:@"CocoaSlideShow.kml"];
+	NSString *kmlFilePath = [dirPath stringByAppendingPathComponent:@"CocoaSlideShow.kml"];
 
     NSString *thumbsDir = nil;
     
 	if(addThumbnails) {
-		thumbsDir = [dir stringByAppendingPathComponent:@"images"];
+		thumbsDir = [dirPath stringByAppendingPathComponent:@"images"];
 
 		error = nil;
 		success = [[NSFileManager defaultManager] createDirectoryAtPath:thumbsDir withIntermediateDirectories:YES attributes:nil error:&error];
 		if(!success) {
-			NSLog(@"Error: can't create dir at path %@, error:%@", dir, error);
+			NSLog(@"Error: can't create dir at path %@, error:%@", dirPath, error);
 			//return;
 		}
 	}
@@ -675,25 +682,33 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 
 #pragma mark thumbnails export
 
-- (NSString *)chooseThumbsExportDirectory {
+- (NSURL *)chooseThumbsExportDirectoryURL {
 
     NSSavePanel *sPanel = [NSSavePanel savePanel];
 	
 	[sPanel setAccessoryView:thumbnailsExportAccessoryView];
 	[sPanel setCanCreateDirectories:YES];
-	
+    
 	NSString *desktopPath = [NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSURL *desktopURL = [NSURL fileURLWithPath:desktopPath];
+    
+    [sPanel setDirectoryURL:desktopURL];
+    [sPanel setNameFieldStringValue:@"ResizedImages"];
 
-	int runResult = [sPanel runModalForDirectory:desktopPath file:@"ResizedImages"];
-	
-	return (runResult == NSOKButton) ? [sPanel filename] : nil;
+    int runResult = [sPanel runModal];
+    
+	return (runResult == NSOKButton) ? [sPanel URL] : nil;
 }
 
 - (IBAction)resizeJPEGs:(id)sender {
 	if(isExporting) return;
 	
-	NSString *exportDir = [self chooseThumbsExportDirectory];
-	if(!exportDir) return;
+	NSURL *exportDirURL = [self chooseThumbsExportDirectoryURL];
+	if(!exportDirURL) return;
+    
+    if([exportDirURL isFileURL] == NO) return;
+    
+    NSString *exportDir = [exportDirURL path];
 	
 	NSError *error = nil;
 	BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:exportDir withIntermediateDirectories:YES attributes:nil error:&error];

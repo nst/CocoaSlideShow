@@ -150,7 +150,9 @@ static NSComparisonResult naturalCompare( CSSImageInfo *img1, CSSImageInfo *img2
 - (void)addDirFiles:(NSString *)dir {
 	//NSLog(@"-- addDirFiles: %@", dir);
 	[self addFiles:[NSArray arrayWithObject:dir]];
-	[[[self undoManager] prepareWithInvocationTarget:self] remove:self];
+    
+    ImagesController *ic = [[self undoManager] prepareWithInvocationTarget:self];
+	[ic remove:self];
 }
 
 - (IBAction)moveToTrash:(id)sender {

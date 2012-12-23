@@ -451,8 +451,11 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 	return isFlagged ? [NSImage imageNamed:@"Flagged.png"] : nil;
 }
 
-- (void)copyToDirectory:(NSString *)destDirectory {
-	NSString *destPath = [destDirectory stringByAppendingPathComponent:[path lastPathComponent]];
+- (void)copyToDirectory:(NSURL *)destDirectoryURL {
+    
+    if([destDirectoryURL isFileURL] == NO) return;
+    
+	NSString *destPath = [[destDirectoryURL path] stringByAppendingPathComponent:[path lastPathComponent]];
 	NSFileManager *fm = [NSFileManager defaultManager];
 
 	if ([fm fileExistsAtPath:path]) {
