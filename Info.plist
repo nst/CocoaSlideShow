@@ -32,13 +32,13 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.5.8</string>
+	<string>0.6</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>http://cocoaslideshow.googlecode.com/svn/trunk/appcast/appcast.xml</string>
+	<string>https://raw.github.com/nst/CocoaSlideShow/master/appcast/appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>css_dsa_pub.pem</string>
 </dict>

@@ -100,6 +100,19 @@
             <pubDate>Thu, 26 May 2011 19:00:00 +0000</pubDate>
             <enclosure url="http://cocoaslideshow.googlecode.com/files/CocoaSlideShow_0_5_8.app.zip" sparkle:version="0.5.8" length="709241" type="application/octet-stream" sparkle:dsaSignature="MCwCFBnBny4rGtQfnuEzGIisHo4v9aq+AhQhUyOAYC+z9gGoQ/qJ/zBy82SEjg=="/>
         </item>
+
+        <item>
+            <title>Version 0.6 (2 new features, Mac OS X 10.7 required)</title>
+            <description><![CDATA[
+<h2>New features</h2>
+<pre>
+- slideshow now loops by default (Brewster K.)
+- code is signed for OS X 10.8 Gatekeeper
+</pre>
+            ]]></description>
+            <pubDate>Thu, 23 December 2012 08:30:00 +0100</pubDate>
+            <enclosure url="http://seriot.ch/software/desktop/CocoaSlideShow/CocoaSlideShow_6_0.app.zip" sparkle:version="0.6" length="749959" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCgkd6QIRPfkbDbIUPrDmRaWINvXQIUWZN73XTmy1cV4JBR2MTp3YZPeqU="/>
+        </item>
         
     </channel>
 </rss>

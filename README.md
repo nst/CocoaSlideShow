@@ -24,11 +24,14 @@ CocoaSlideShow embeds [EpegWrapper](http://www.entropy.ch/software/macosx/#epegw
 <pre>
 TODO:
   * show images at pixel resolution, not dpi resolution
-  * continuous looping in the slideshow (Tim)
   * update Sparkle
 
 Known bugs:
   * you sometimes have to type 'esc' twice to exit fullscreen
+
+Version 0.6
+  * slideshow now loops by default (Tim, Brewster K.)
+  * code is signed for OS X 10.8 Gatekeeper
 
 Version 0.5.8
   * Mac OS X 10.6 required
