@@ -250,7 +250,6 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
     CGImageDestinationRef destination = CGImageDestinationCreateWithData((CFMutableDataRef)data, (CFStringRef)@"public.jpeg", 1, NULL);
     if(!destination) {
         NSLog(@"Error: could not create image destination");
-		CFRelease(destination);
 		if(source) {
 			CFRelease(source);
 			source = nil;
