@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <title>CocoaSlideShow Changelog</title>
+        <link>http://cocoaslideshow.googlecode.com/svn/trunk/appcast/appcast.xml</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+        
+        <item>
+            <title>Version 0.5.4 (2 bugs fixed, 1 new feature)</title>
+            <description><![CDATA[
+<h2>New feature</h2>
+<pre>
+- updates with Sparkle
+</pre>
+
+<h2>Bug fixes</h2>
+<pre>
+- don't crash when setting a new default directory
+- fullscreen can use any display, not only the first one
+</pre>
+            ]]></description>
+            <pubDate>Mon, 13 Jul 2009 22:00:00 +0000</pubDate>
+            <enclosure url="http://cocoaslideshow.googlecode.com/files/CocoaSlideShow_0_5_4.app.zip" sparkle:version="0.5.4" length="574576" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCckMEOzaVD5e5WM5y9rVKlJGFQjAIUKS4DamLJsW1IYlr2bExn344ghRs="/>
+        </item>
+
+        <item>
+            <title>Version 0.5.5 (1 bug fixed, 4 new features)</title>
+            <description><![CDATA[
+<h2>New features</h2>
+<pre>
+- show thumbnails on map
+- add local or remote thumbnails to KML export
+- use camera rotation data
+- remember user rotation
+</pre>
+
+<h2>Bug fix</h2>
+<pre>
+- fixed "check updates at startup" setting
+</pre>
+            ]]></description>
+            <pubDate>Tue, 21 Jul 2009 23:30:00 +0000</pubDate>
+            <enclosure url="http://cocoaslideshow.googlecode.com/files/CocoaSlideShow_0_5_5.app.zip" sparkle:version="0.5.5" length="712055" type="application/octet-stream" sparkle:dsaSignature="MCwCFHa62SyiihBElR76SO1/8AwgnNafAhRGzEjS7WyIMYM6h6gg2Dy6/O5fHA=="/>
+        </item>
+
+        <item>
+            <title>Version 0.5.6 (2 bugs fixed, 2 new features)</title>
+            <description><![CDATA[
+<h2>New features</h2>
+<pre>
+- resize and export JPEGs in batch
+- much better google map integration
+</pre>
+
+<h2>Bug fix</h2>
+<pre>
+- did crash on startup when default folder had more that 500 images
+- thumbnails are now properly rotated on the map
+</pre>
+            ]]></description>
+            <pubDate>Sun, 02 Aug 2009 18:30:00 +0000</pubDate>
+            <enclosure url="http://cocoaslideshow.googlecode.com/files/CocoaSlideShow_0_5_6.app.zip" sparkle:version="0.5.6" length="1794995" type="application/octet-stream" sparkle:dsaSignature="MCwCFGxFXXu4sh+wMwTTfXlJUanruxIiAhQfdPYLSfTLS8TLzj3fElhMmkh/rg=="/>
+        </item>
+
+        <item>
+            <title>Version 0.5.7 (1 bug fixed, 4 new features)</title>
+            <description><![CDATA[
+<h2>New features</h2>
+<pre>
+- can drag multiple files from tableview
+- remember window last position
+- play success sound also after export
+- new 16x16 icon
+</pre>
+
+<h2>Bug fix</h2>
+<pre>
+- speed improvements
+</pre>
+            ]]></description>
+            <pubDate>Fri, 14 Aug 2009 00:30:00 +0000</pubDate>
+            <enclosure url="http://cocoaslideshow.googlecode.com/files/CocoaSlideShow_0_5_7.app.zip" sparkle:version="0.5.7" length="735624" type="application/octet-stream" sparkle:dsaSignature="MCwCFAReGjIUrDnsXPcT+rEpwQjlq4dcAhRIlOCt1ZoFD8JRtjt+kgk/K8UR7A=="/>
+        </item>
+
+        <item>
+            <title>Version 0.5.8 (1 bug fixed, 3 new features, Mac OS X 10.6 required)</title>
+            <description><![CDATA[
+<h2>New features</h2>
+<pre>
+- display the number of flagged and unflagged images in the tableview header
+- added an option to sort image names by natural order (germ...@gmail.com)
+</pre>
+
+<h2>Bug fix</h2>
+<pre>
+- application could crash when opening corrupted images
+</pre>
+            ]]></description>
+            <pubDate>Thu, 26 May 2011 19:00:00 +0000</pubDate>
+            <enclosure url="http://cocoaslideshow.googlecode.com/files/CocoaSlideShow_0_5_8.app.zip" sparkle:version="0.5.8" length="709241" type="application/octet-stream" sparkle:dsaSignature="MCwCFBnBny4rGtQfnuEzGIisHo4v9aq+AhQhUyOAYC+z9gGoQ/qJ/zBy82SEjg=="/>
+        </item>
+        
+    </channel>
+</rss>

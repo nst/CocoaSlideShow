@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>CocoaSlideShow</title>
+    <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAyj5pErQ2rt4sNoP8_DBVcxQqgwkBz2GMttiD5juD_pXeJYXxeBRiygJvZWY_J3-nSAR3nvEmuLIi3Q">
+	</script>
+	<script type="text/javascript">
+	
+	var mapController; // set from Cocoa via KVC
+
+	var markers = [];
+	var map = null;
+	var bounds = new GLatLngBounds();
+	var centerSet = false;
+	var currentPosMarker = null;
+
+    function initialize() {
+	
+		map	= new google.maps.Map(document.getElementById("map_canvas"));
+		//GLog.write("xx");
+		
+		map.addMapType(G_PHYSICAL_MAP);
+		map.setMapType(G_PHYSICAL_MAP);
+		
+		map.addControl(new GLargeMapControl());
+		map.addControl(new GMapTypeControl());
+
+        if(!mapController) {
+			return;
+		}
+		
+		GEvent.addListener(map, "maptypechanged",
+			function() {
+				var mapType = map.getCurrentMapType();
+				
+				if(mapType == G_NORMAL_MAP) {
+					mapController.mapTypeDidChange_("G_NORMAL_MAP");
+				} else if (mapType == G_HYBRID_MAP) {
+					mapController.mapTypeDidChange_("G_HYBRID_MAP");				
+				} else if (mapType == G_SATELLITE_MAP) {
+					mapController.mapTypeDidChange_("G_SATELLITE_MAP");
+				} else if (mapType == G_PHYSICAL_MAP) {
+					mapController.mapTypeDidChange_("G_PHYSICAL_MAP");
+				}
+			}
+		); 
+
+		GEvent.addListener(map, "zoomend",
+			function(oldLevel, newLevel) {
+				mapController.zoomLevelDidChange_(newLevel);
+			}
+		);
+		
+    }
+
+	function setMapSize(width, height) {
+		//map.setMapType(style); // G_NORMAL_MAP, G_HYBRID_MAP, G_SATELLITE_MAP, G_PHYSICAL_MAP
+		map.checkResize();
+	}
+
+	
+	function setMapStyle(style) {
+		map.setMapType(style); // G_NORMAL_MAP, G_HYBRID_MAP, G_SATELLITE_MAP, G_PHYSICAL_MAP
+	}
+	
+	function addPoint(uid, lat, long, name, path, date, degrees) {
+	   
+		if(markers[uid]) {
+			return;
+		}
+			
+		var point = new GLatLng(lat, long);
+		var marker = new GMarker(point);
+		marker.hide();
+		var markerText = "<font face=\"verdana, sans-serif\" size=1><br /><b>"+name+"</b><br />"+date+"<\/font><br /><div class=\"rot"+degrees+"\"><img width=\"240\" src=\""+path+"\" /></div>";
+				
+		GEvent.addListener(marker, "click",
+			function() {
+				marker.openInfoWindowHtml(markerText);
+			}
+		);
+		
+		markers[uid] = marker;
+		
+		map.addOverlay(marker);
+		marker.hide();
+		
+		bounds.extend(marker.getLatLng());
+	}
+	
+	function removePoint(uid) {
+		var marker = markers[uid];
+		
+		if(!marker) {
+			return;
+		}
+		
+		map.removeOverlay(marker);
+		
+		delete markers[uid];
+	}
+	
+	function hidePoint(uid) {
+		var marker = markers[uid];
+		if(!marker) {
+			return;
+		}
+		marker.closeInfoWindow();
+		marker.hide();
+	}
+	
+	function showPoint(uid) {
+		var marker = markers[uid];
+		if(!marker) {
+			return uid + " not found";
+		}
+		marker.show();
+		return typeof(marker);
+	}
+
+	function center() {
+		map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds));
+	}
+	
+	function centerToLatitudeAndLongitudeWithZoom(latitude, longitude, zoom) {
+        if(!centerSet) {
+            map.setCenter(new GLatLng(0.0, 0.0), 13);
+            centerSet = true;
+        }
+        
+        var coord = new GLatLng(latitude, longitude);
+        map.setZoom(zoom);
+        map.panTo(coord);
+	}
+
+	function centerWithZoom(zoom) {
+		map.setCenter(bounds.getCenter(), zoom);
+	}
+    
+	</script>
+	<style type="text/css">
+		html, body {margin: 0; padding:0; background: #8f8f8f; width:100%; height:100%;}
+		#map_canvas {margin:0; padding:0; width:100%; height:100%;}
+		
+		.rot0 img {-webkit-transform: rotate(0deg);}
+		.rot90 img {-webkit-transform: rotate(270deg) translate(3em);}
+		.rot180 img {-webkit-transform: rotate(180deg);}
+		.rot270 img {-webkit-transform: rotate(90deg) translate(3em);}
+		
+	</style>
+  </head>
+  <body onload="initialize();" onunload="GUnload();">
+    <div id="map_canvas" style="width:100%; height:100%"></div>
+  </body>
+</html>
