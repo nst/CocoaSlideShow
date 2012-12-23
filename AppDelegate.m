@@ -257,11 +257,18 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 }
 
 - (void)timerNextTick {
-	if(![imagesController canSelectNext]) {
-		[self invalidateTimer];
-        if(isFullScreen) [self exitFullScreen:nil];
-	}
-	[imagesController selectNextImage]; 
+    
+    BOOL slideshowStopsAtTheEnd = [[NSUserDefaults standardUserDefaults] boolForKey:@"SlideshowStopsAtTheEnd"];
+    
+    if(slideshowStopsAtTheEnd) {
+        if(![imagesController canSelectNext]) {
+            [self invalidateTimer];
+            if(isFullScreen) [self exitFullScreen:nil];
+        }
+        [imagesController selectNextImage];    
+    } else {
+        [imagesController selectNextImageOrFirstOne];
+    }
 }
 
 - (IBAction)toggleSlideShow:(id)sender {

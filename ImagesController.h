@@ -27,6 +27,7 @@
 - (BOOL)multipleImagesSelected;
 - (void)selectPreviousImage;
 - (void)selectNextImage;
+- (void)selectNextImageOrFirstOne;
 - (void)addFiles:(NSArray *)filePaths;
 - (void)addDirFiles:(NSString *)dir;
 - (BOOL)atLeastOneImageWithGPSSelected;

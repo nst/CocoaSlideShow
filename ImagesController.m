@@ -97,6 +97,17 @@ static NSComparisonResult naturalCompare( CSSImageInfo *img1, CSSImageInfo *img2
 	}
 }
 
+- (void)selectNextImageOrFirstOne {
+    
+	if([self canSelectNext]) {
+		[[[self undoManager] prepareWithInvocationTarget:self] selectPrevious:self];
+		[self selectNext:self];
+	} else {
+        if([[self arrangedObjects] count] == 0) return;
+        [self setSelectionIndex:0];
+    }
+}
+
 - (BOOL)multipleImagesSelected {
 	return [[self selectedObjects] count] > 1;
 }
