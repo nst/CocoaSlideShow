@@ -69,7 +69,7 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 
 - (void)dealloc {
 	//NSLog(@"-- dealloc %@", path);
-
+    
 	if(source) {
 		CFRelease(source);
 		source = nil;
@@ -144,8 +144,8 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
     
 	NSString *UTI = (NSString *)CGImageSourceGetType(source);
 
-	CFRelease(source);
-	source = nil;
+//	CFRelease(source);
+//	source = nil;
 	
 	[self willChangeValueForKey:@"isJpeg"];
 	isJpeg = [UTI isEqualToString:@"public.jpeg"];
@@ -234,8 +234,11 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
     if(url == nil) return NULL;
     
     source = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
-    sourceWasRead = YES;
-    if(source) return source;
+    
+    if(source) {
+        sourceWasRead = YES;
+        return source;
+    }
     
 	CGImageSourceStatus status = CGImageSourceGetStatus(source);
 	NSLog(@"Error: could not create image source. Status: %d", status);
@@ -269,12 +272,15 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 		return NO;
 	}
 	
+    
 	CFRelease(destination);
-	if(source) {
+	/*
+    if(source) {
 		CFRelease(source);
 		source = nil;
 	}
-	
+	*/
+    
 	NSURL *url = [NSURL fileURLWithPath:path];
 	NSError *error = nil;
 	success = [data writeToURL:url options:NSAtomicWrite error:&error];
