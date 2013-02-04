@@ -16,9 +16,9 @@ With CocoaSlideShow you can:
 
 _I really liked the simplicity of CocoaSlideShow. It's refreshing to use a straightforward, elegant photo viewer that does exactly what it's supposed to with no fuss._ [-Nick Mead, Softonic](http://cocoaslideshow.en.softonic.com/mac)
 
-![CocoaSlideShow](https://raw.github.com/nst/CocoaSlideShow/master/art/CocoaSlideShow_screenshot_small.jpg)
-![CocoaSlideShow](https://raw.github.com/nst/CocoaSlideShow/master/art/CocoaSlideShow_Spotlight_screenshot_small.png)
-![CocoaSlideShow](https://raw.github.com/nst/CocoaSlideShow/master/art/CocoaSlideShow_screenshot_map_small.png)
+![CocoaSlideShow](art/CocoaSlideShow_screenshot_small.jpg)
+![CocoaSlideShow](art/CocoaSlideShow_Spotlight_screenshot_small.png)
+![CocoaSlideShow](art/CocoaSlideShow_screenshot_map_small.png)
 
 CocoaSlideShow embeds [EpegWrapper](http://www.entropy.ch/software/macosx/#epegwrapper), a Cocoa Framework for fast thumbnails generation, by entropy.ch.
 <pre>
