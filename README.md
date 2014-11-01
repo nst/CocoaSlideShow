@@ -3,6 +3,12 @@ CocoaSlideShow
 
 CocoaSlideShow is a Mac OS X simple, fast image viewer, spiritual son of [Slides](http://richardk.info/slides/).
 
+--
+
+Download [CocoaSlideShow 0.6](http://seriot.ch/software/desktop/CocoaSlideShow/CocoaSlideShow_6_0.app.zip) (OS X 10.6+, 754 KB)
+
+--
+
 #### CocoaSlideShow is the perfect companion for iPhone GPS tagged photos.
 
 With CocoaSlideShow you can:
