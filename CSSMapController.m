@@ -25,19 +25,19 @@ static NSString *const kMapZoom = @"mapZoom";
 - (void)awakeFromNib {
 	displayedImages = [[NSMutableSet alloc] init];
 	
-	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"gmap" ofType:@"html"];	
-	
-	NSURL *url = [NSURL fileURLWithPath:filePath];
-	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"gmap" ofType:@"html"];	
+//	
+//	NSURL *url = [NSURL fileURLWithPath:filePath];
+//	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
-	// FIXME: webView frame should be set according to current window size, but it doesn't work..
-	[webView setFrame:NSMakeRect(0.0, 0.0, 1500.0, 1000.0)];
-		
-	[webView setFrameLoadDelegate:self];
-	[[webView mainFrame] loadRequest:request];
-	
-	scriptObject = [webView windowScriptObject];
-	[scriptObject setValue:self forKey:@"mapController"];
+//	// FIXME: webView frame should be set according to current window size, but it doesn't work..
+//	[webView setFrame:NSMakeRect(0.0, 0.0, 1500.0, 1000.0)];
+//		
+//	[webView setFrameLoadDelegate:self];
+//	[[webView mainFrame] loadRequest:request];
+//	
+//	scriptObject = [webView windowScriptObject];
+//	[scriptObject setValue:self forKey:@"mapController"];
 }
 /*
 + (NSString *)webScriptNameForSelector:(SEL)sel {
@@ -69,7 +69,15 @@ static NSString *const kMapZoom = @"mapZoom";
 }
 
 - (void)clearMap {
-	[[webView mainFrame] loadRequest:nil];
+//	[[webView mainFrame] loadRequest:nil];
+    
+    assert([mapView isKindOfClass:[MKMapView class]]);
+    
+    NSArray *annotations = [mapView annotations];
+    
+    NSLog(@"-- %@", annotations);
+    
+    [mapView removeAnnotations:annotations];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -105,7 +113,6 @@ static NSString *const kMapZoom = @"mapZoom";
 		[displayedImages addObject:imageInfo];
 	}
 	
-	[toHide release];
 
 	CSSImageInfo *lastObject = [[imagesController selectedObjects] lastObject];
 	
@@ -116,10 +123,10 @@ static NSString *const kMapZoom = @"mapZoom";
 		[jsCommands addObject:[NSString stringWithFormat:@"centerToLatitudeAndLongitudeWithZoom(%@, %@, %@);", lat, lon, zoom]];
 	}
 	
-	NSString *js = [jsCommands componentsJoinedByString:@"\n"];
+	//NSString *js = [jsCommands componentsJoinedByString:@"\n"];
 	//NSLog(@"-- \n%@", js);
 	
-	[webView stringByEvaluatingJavaScriptFromString:js];
+//	[webView stringByEvaluatingJavaScriptFromString:js];
 }
 
 - (void)evaluateNewJavaScriptOnArrangedObjectsChange {
@@ -146,31 +153,26 @@ static NSString *const kMapZoom = @"mapZoom";
 		//NSLog(@"  -- add %d", [imageInfo hash]);
 	}
 	
-	[toRemove release];
 
-	NSString *js = [jsCommands componentsJoinedByString:@"\n"];
+	//NSString *js = [jsCommands componentsJoinedByString:@"\n"];
 	//NSLog(@"-- \n%@", js);
 	
-	[webView stringByEvaluatingJavaScriptFromString:js];
+//	[webView stringByEvaluatingJavaScriptFromString:js];
 	
 	[self evaluateNewJavaScriptOnSelectedObjectsChange];
 }
 
 #pragma mark WebFrameLoadDelegate
 
-- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
-	
-	NSString *mapStyle = [[NSUserDefaults standardUserDefaults] stringForKey:kMapStyle];
-	if(!mapStyle || ![[self mapStyles] containsObject:mapStyle]) {
-		mapStyle = G_PHYSICAL_MAP;
-		[[NSUserDefaults standardUserDefaults] setValue:mapStyle forKey:kMapStyle];
-	}
-	[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setMapStyle(%@);", mapStyle]];
-}
+//- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
+//	
+//	NSString *mapStyle = [[NSUserDefaults standardUserDefaults] stringForKey:kMapStyle];
+//	if(!mapStyle || ![[self mapStyles] containsObject:mapStyle]) {
+//		mapStyle = G_PHYSICAL_MAP;
+//		[[NSUserDefaults standardUserDefaults] setValue:mapStyle forKey:kMapStyle];
+//	}
+//	[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setMapStyle(%@);", mapStyle]];
+//}
 
-- (void)dealloc {
-	[displayedImages release];
-	[super dealloc];
-}
 
 @end

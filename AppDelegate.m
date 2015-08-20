@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "AppleRemote.h"
+//#import "AppleRemote.h"
 #import "NSFileManager+CSS.h"
 #import <Sparkle/SUUpdater.h>
 #import "CSSBorderlessWindow.h"
@@ -35,22 +35,11 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 	return imagesController;
 }
 
-- (void)dealloc {
-	[mainWindow release];
-	[imagesController release];
-	[images release];
-	[remoteControl autorelease];
-	[undoManager release];
-
-	[super dealloc];
-}
-
 - (void)playSuccessSound {
 	NSString *soundPath = @"/System/Library/Sounds/Hero.aiff";
 	if([[NSFileManager defaultManager] fileExistsAtPath:soundPath]) {
 		NSSound *sound = [[NSSound alloc] initWithContentsOfFile:soundPath byReference:YES];
 		[sound play];
-		[sound release];
 	}
 }
 
@@ -74,7 +63,7 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 }
 
 - (void)setupToolbar {	
-    toolbar = [[[NSToolbar alloc] initWithIdentifier:@"mainToolbar"] autorelease];
+    toolbar = [[NSToolbar alloc] initWithIdentifier:@"mainToolbar"];
     [toolbar setDelegate:self];
     [toolbar setAllowsUserCustomization:YES];
     [toolbar setAutosavesConfiguration:YES];
@@ -83,7 +72,7 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 
 - (void)awakeFromNib {
     
-	remoteControl = [[AppleRemote alloc] initWithDelegate: self];
+//	remoteControl = [[AppleRemote alloc] initWithDelegate: self];
 	
 	[mainWindow registerForDraggedTypes:[NSArray arrayWithObjects: NSFilenamesPboardType, nil]];
 	
@@ -124,7 +113,7 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 		NSUInteger flaggedCount = [[imagesController flaggedIndexes] count];
 		
 		// TODO: localize
-		NSString *title = [NSString stringWithFormat:@"%d images (%d flags)", objectsCount, flaggedCount];
+		NSString *title = [NSString stringWithFormat:@"%lu images (%lu flags)", objectsCount, flaggedCount];
 		
 		[[[tableView tableColumnWithIdentifier:@"name"] headerCell] setTitle:title];
 		[tableView reloadData];
@@ -293,111 +282,37 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 	[self exitFullScreen:self];
 }
 
-- (void)hideGoogleMap {
+- (void)hideMap {
 	[tabView selectTabViewItem:imageTabViewItem];
 	[imagesController removeObserver:mapController forKeyPath:@"selectedObjects"];
 	[imagesController removeObserver:mapController forKeyPath:@"arrangedObjects"];
 	[mapController clearMap];
 }
 
-- (void)showGoogleMap {
+- (void)showMap {
 	[tabView selectTabViewItem:mapTabViewItem];
 	[imagesController addObserver:mapController forKeyPath:@"selectedObjects" options:(NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew) context:NULL];
 	[imagesController addObserver:mapController forKeyPath:@"arrangedObjects" options:(NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew) context:NULL];
 	[mapController evaluateNewJavaScriptOnArrangedObjectsChange];
 }
 
-- (IBAction)toggleGoogleMap:(id)sender {
+- (IBAction)toggleMap:(id)sender {
 	if([tabView selectedTabViewItem] == mapTabViewItem) {
-		[self hideGoogleMap];
+		[self hideMap];
 	} else {
-		[self showGoogleMap];
+		[self showMap];
 	}
-}
-
-- (void)sendRemoteButtonEvent: (RemoteControlEventIdentifier) event pressedDown: (BOOL) pressedDown remoteControl: (RemoteControl*) remoteControl {
-	//NSLog(@"Button %d pressed down %d", event, pressedDown);
-	
-	NSString* buttonName = nil;
-	NSString* pressed = @"";
-	
-	if(!pressedDown) {
-		return;
-	}
-	
-	switch(event) {
-		case kRemoteButtonPlus:
-			buttonName = @"Volume up";
-			[self rotateRight:self];
-			
-			if (pressedDown) pressed = @"(down)"; else pressed = @"(up)";			
-			break;
-		case kRemoteButtonMinus:
-			buttonName = @"Volume down";
-			[self rotateLeft:self];
-			
-			if (pressedDown) pressed = @"(down)"; else pressed = @"(up)";
-			break;			
-		case kRemoteButtonMenu:
-			buttonName = @"Menu";
-			if(isFullScreen) {
-				[self exitFullScreen:self];
-			} else {
-				[self fullScreenMode:self];
-			}
-			break;			
-		case kRemoteButtonPlay:
-			buttonName = @"Play";
-			
-			if(isFullScreen) {
-				[self toggleSlideShow:self];
-			} else {
-				[self startSlideShow:self];
-			}
-			
-			break;			
-		case kRemoteButtonRight:	
-			buttonName = @"Right";
-			[imagesController selectNextImage];
-			break;			
-		case kRemoteButtonLeft:
-			buttonName = @"Left";
-			[imagesController selectPreviousImage];
-			break;			
-		case kRemoteButtonRight_Hold:
-			buttonName = @"Right holding";	
-			if (pressedDown) pressed = @"(down)"; else pressed = @"(up)";
-			break;	
-		case kRemoteButtonLeft_Hold:
-			buttonName = @"Left holding";		
-			if (pressedDown) pressed = @"(down)"; else pressed = @"(up)";
-			break;			
-		case kRemoteButtonPlay_Hold:
-			buttonName = @"Play (sleep mode)";
-			break;			
-		case kRemoteButtonMenu_Hold:
-			buttonName = @"Menu (long)";
-			break;
-		case kRemoteControl_Switched:
-			buttonName = @"Remote Control Switched";
-			break;
-		default:
-			//NSLog(@"Unmapped event for button %d", event); 
-			break;
-	}
-	
-	//NSLog(@"buttonName %@", buttonName);
 }
 
 #pragma mark NSApplication Delegates
 
-- (void)applicationWillBecomeActive:(NSNotification *)aNotification {
-    [remoteControl startListening: self];
-}
-
-- (void)applicationWillResignActive:(NSNotification *)aNotification {
-    [remoteControl stopListening: self];
-}
+//- (void)applicationWillBecomeActive:(NSNotification *)aNotification {
+//    [remoteControl startListening: self];
+//}
+//
+//- (void)applicationWillResignActive:(NSNotification *)aNotification {
+//    [remoteControl stopListening: self];
+//}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	if(takeFilesFromDefault) {
@@ -495,7 +410,7 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {	
 	if([tabView selectedTabViewItem] == mapTabViewItem && [[imagesController selectedObjects] count] == 0) {
-		[self hideGoogleMap];
+		[self hideMap];
 	}
 }
 
@@ -578,7 +493,7 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 		}
 	}
 	
-	NSArray *kmlImages = [[[imagesController selectedObjects] copy] autorelease];
+	NSArray *kmlImages = [[imagesController selectedObjects] copy];
 		
 	if(addThumbnails) {
 		[self prepareProgressIndicator:[kmlImages count]];
@@ -599,9 +514,9 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
     
     NSMutableArray *placemarkStrings = [NSMutableArray array];
     
-    NSOperationQueue *exportQueue = [[[NSOperationQueue alloc] init] autorelease];
+    NSOperationQueue *exportQueue = [[NSOperationQueue alloc] init];
 
-    NSBlockOperation *exportOperationBlock = [[[NSBlockOperation alloc] init] autorelease];
+    NSBlockOperation *exportOperationBlock = [[NSBlockOperation alloc] init];
             
 	for(CSSImageInfo *cssImageInfo in kmlImages) {
         
@@ -725,7 +640,7 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 	
 	[self setValue:[NSNumber numberWithBool:YES] forKey:@"isExporting"];
 	
-	NSArray *theImages = [[[imagesController selectedObjects] copy] autorelease];
+	NSArray *theImages = [[imagesController selectedObjects] copy];
 
 	[self prepareProgressIndicator:[theImages count]];
 	
@@ -745,9 +660,9 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 		h = [[[NSUserDefaults standardUserDefaults] stringForKey:kThumbsExportSizeHeight] intValue];	
 	}
 
-	NSOperationQueue *resizeQueue = [[[NSOperationQueue alloc] init] autorelease];
+	NSOperationQueue *resizeQueue = [[NSOperationQueue alloc] init];
 	
-	NSBlockOperation *resizeBlockOperation = [[[NSBlockOperation alloc] init] autorelease];
+	NSBlockOperation *resizeBlockOperation = [[NSBlockOperation alloc] init];
 
 	for(CSSImageInfo *imageInfo in theImages) {
 		[[NSOperationQueue mainQueue] addOperationWithBlock:^{

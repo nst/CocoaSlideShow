@@ -46,7 +46,7 @@
 		[fullPaths addObject:[dirPath stringByAppendingPathComponent:name]];
 	}
 	
-	return [fullPaths autorelease];	
+	return fullPaths;	
 }
 
 - (NSString *)prettyFileSize:(NSString *)path {

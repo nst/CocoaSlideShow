@@ -92,15 +92,15 @@
         [item setTarget:self];
 		[item setAction:@selector(moveToTrash:)];
 	} else if ([itemIdentifier isEqualToString:@"gmap"]) {
-        [item setLabel:NSLocalizedString(@"Google Map", @"Toolbar item")];
-        [item setPaletteLabel:NSLocalizedString(@"Google Map", @"Toolbar customize")];
-        [item setToolTip:NSLocalizedString(@"Google Map", @"Toolbar tooltip")];
+        [item setLabel:NSLocalizedString(@"Map", @"Toolbar item")];
+        [item setPaletteLabel:NSLocalizedString(@"Map", @"Toolbar customize")];
+        [item setToolTip:NSLocalizedString(@"Map", @"Toolbar tooltip")];
         [item setImage:[NSImage imageNamed:@"gmap.png"]];
 		[item setTag:kSelectedIfGPSOrCanGoBackToImage];
         [item setTarget:self];
-		[item setAction:@selector(toggleGoogleMap:)];	
+		[item setAction:@selector(toggleMap:)];
     }	
-    return [item autorelease];
+    return item;
 }
 
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar {
@@ -123,7 +123,7 @@
 	if([theItem tag] == kAlwaysSelected) {
 		return YES;
 	} else if ([theItem tag] == kSelectedIfAtLeastOneImageSelected) {
-		return [[imagesController selectedObjects] count];
+		return [[imagesController selectedObjects] count] > 0;
 	} else if ([theItem tag] == kSelectedIfAtLeastOneGPSImageSelected) {
 		return [imagesController atLeastOneImageWithGPSSelected];
 	} else if ([theItem tag] == kSelectedIfGPSOrCanGoBackToImage) {
@@ -144,8 +144,8 @@
 	[imagesController moveToTrash:sender];
 }
 
-- (void)openGoogleMap:(id)sender {
-	[imagesController openGoogleMap:sender];
+- (void)openMap:(id)sender {
+	[imagesController openMap:sender];
 }
 
 @end

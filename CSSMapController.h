@@ -7,16 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <WebKit/WebKit.h>
+#import <MapKit/MapKit.h>
 
 @class ImagesController;
 
 extern NSString *const G_NORMAL_MAP;
 
 @interface CSSMapController : NSObject {
-	IBOutlet WebView *webView;
+	IBOutlet MKMapView *mapView;
 	IBOutlet ImagesController *imagesController;
-	WebScriptObject *scriptObject;
+//	WebScriptObject *scriptObject;
 	
 	NSMutableSet *displayedImages;
 }

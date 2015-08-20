@@ -9,27 +9,30 @@
 // http://www.cocoadev.com/index.pl?ThumbnailImages
 
 #import "NSImage+CSS.h"
-#import <Epeg/EpegWrapper.h>
+//#import <Epeg/EpegWrapper.h>
 #import <Quartz/Quartz.h>
 
 @implementation NSImage (CSS)
 
-static inline double rad(int alpha) {return ((alpha * pi)/180);}
+static inline double rad(int alpha) {return ((alpha * M_PI)/180);}
 
 + (BOOL)scaleAndSaveJPEGThumbnailFromFile:(NSString *)srcPath toPath:(NSString *)dstPath boundingBox:(NSSize)boundingBox rotation:(int)orientationDegrees size:(NSSize *)mySize {
-	NSImage *thumbnail = [[EpegWrapper imageWithPath2:srcPath boundingBox:boundingBox] rotatedWithAngle:orientationDegrees];
+#warning TODO: implement using CIImage
+    /*
+    NSImage *thumbnail = [[EpegWrapper imageWithPath2:srcPath boundingBox:boundingBox] rotatedWithAngle:orientationDegrees];
 	NSBitmapImageRep *bitmap = [NSBitmapImageRep imageRepWithData: [thumbnail TIFFRepresentation]];
 	NSDictionary *properties = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithFloat:0.75], NSImageCompressionFactor, [NSNumber numberWithBool:YES], NSImageProgressive, nil];
 	NSData *data = [bitmap representationUsingType:NSJPEGFileType properties:properties];
 	*mySize = [thumbnail size];
 	return [data writeToFile:dstPath atomically:NO];
+     */
+    return NO;
 }
 
 - (CIImage *)toCIImage {
-    NSBitmapImageRep *bitmapimagerep = [[[NSBitmapImageRep alloc] initWithData:[self TIFFRepresentation]] autorelease];
-    CIImage *im = [[[CIImage alloc]
-                    initWithBitmapImageRep:bitmapimagerep]
-                   autorelease];
+    NSBitmapImageRep *bitmapimagerep = [[NSBitmapImageRep alloc] initWithData:[self TIFFRepresentation]];
+    CIImage *im = [[CIImage alloc]
+                    initWithBitmapImageRep:bitmapimagerep];
     return im;
 }
 
@@ -38,7 +41,7 @@ static inline double rad(int alpha) {return ((alpha * pi)/180);}
                                quality:(float)quality
                            destination:(NSString *)dest {
 	
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
     NSBitmapImageRep *rep = nil;
     NSBitmapImageRep *output = nil;
     NSImage *scratch = nil;
@@ -50,7 +53,6 @@ static inline double rad(int alpha) {return ((alpha * pi)/180);}
     // could not open file
     if (!rep) {
 		NSLog(@"Could not create NSBitmapImageRep");
-		[pool release];
 		return NO;
     }
     
@@ -80,12 +82,11 @@ static inline double rad(int alpha) {return ((alpha * pi)/180);}
     }
     
     // image to render into
-    scratch = [[[NSImage alloc] initWithSize:NSMakeSize(nw, nh)] autorelease];
+    scratch = [[NSImage alloc] initWithSize:NSMakeSize(nw, nh)];
     
     // could not create image
     if (!scratch) {
 		NSLog(@"Could not render image");
-		[pool release];
 		return NO;
     }
     
@@ -93,13 +94,12 @@ static inline double rad(int alpha) {return ((alpha * pi)/180);}
     [scratch lockFocus];
     [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
     [rep drawInRect:NSMakeRect(0.0, 0.0, nw, nh)];
-    output = [[[NSBitmapImageRep alloc] initWithFocusedViewRect:NSMakeRect(0,0,nw,nh)] autorelease];
+    output = [[NSBitmapImageRep alloc] initWithFocusedViewRect:NSMakeRect(0,0,nw,nh)];
     [scratch unlockFocus];
     
     // could not get result
     if (!output) {
 		NSLog(@"Could not scale image");
-		[pool release];
 		return NO;
     }
     
@@ -115,15 +115,14 @@ static inline double rad(int alpha) {return ((alpha * pi)/180);}
     // could not get result
     if (!bitmapData) {
 		NSLog(@"Could not convert to JPEG");
-		[pool release];
 		return NO;
     }
     
     BOOL ret = [bitmapData writeToFile:dest atomically:YES];
     
-    [pool release];
     
     return ret;
+    }
 }
 
 // http://lists.apple.com/archives/Cocoa-dev/2005//Dec/msg00143.html
@@ -172,7 +171,7 @@ static inline double rad(int alpha) {return ((alpha * pi)/180);}
 	[tmpImage setDataRetained: YES];
 	[tmpImage setScalesWhenResized: YES];
 	
-	return [tmpImage autorelease];
+	return tmpImage;
 }
 /*
 - (NSImage *)rotatedWithAngle:(int)alpha {

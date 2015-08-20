@@ -31,6 +31,6 @@
 - (void)addFiles:(NSArray *)filePaths;
 - (void)addDirFiles:(NSString *)dir;
 - (BOOL)atLeastOneImageWithGPSSelected;
-- (IBAction)openGoogleMap:(id)sender;
+- (IBAction)openMap:(id)sender;
 
 @end

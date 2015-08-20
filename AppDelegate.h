@@ -2,7 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "RemoteControl.h"
+//#import "RemoteControl.h"
 
 #import "CSSImageView.h"
 #import "ImagesController.h"
@@ -36,7 +36,7 @@
 	
 	NSToolbar *toolbar;
 	
-	RemoteControl *remoteControl;
+//	RemoteControl *remoteControl;
 	NSUndoManager *undoManager;
 	NSTimer *timer;
 
@@ -69,7 +69,7 @@
 - (IBAction)startSlideShow:(id)sender;
 - (IBAction)toggleSlideShow:(id)sender;
 
-- (IBAction)toggleGoogleMap:(id)sender;
+- (IBAction)toggleMap:(id)sender;
 
 - (IBAction)exportKMLToFile:(id)sender;
 - (IBAction)resizeJPEGs:(id)sender;

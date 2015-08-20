@@ -20,7 +20,7 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 
 + (NSSet *)keyPathsForValuesAffectingFlagIcon {
 	if(keyPathsForValuesAffectingFlagIcon == nil) {
-		keyPathsForValuesAffectingFlagIcon = [[NSSet setWithObject:@"isFlagged"] retain];
+		keyPathsForValuesAffectingFlagIcon = [NSSet setWithObject:@"isFlagged"];
 	}
 	
 	return keyPathsForValuesAffectingFlagIcon;
@@ -48,8 +48,7 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 	}
 	
 	if(path != aPath) {
-		[path release];
-		path = [aPath retain];
+		path = aPath;
 	}
 }
 
@@ -64,7 +63,7 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 }
 
 + (CSSImageInfo *)containerWithPath:(NSString *)aPath {
-	return [[[CSSImageInfo alloc] initWithPath:aPath] autorelease];
+	return [[CSSImageInfo alloc] initWithPath:aPath];
 }
 
 - (void)dealloc {
@@ -75,10 +74,7 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 		source = nil;
 	}
 
-	[path release];
-	[metadata release];
 
-	[super dealloc];
 }
 
 - (NSMutableDictionary *)metadata {
@@ -133,12 +129,8 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 	// fill caches
 	CFDictionaryRef metadataRef = CGImageSourceCopyPropertiesAtIndex(source,0,NULL);
 	if(metadataRef) {
-		NSDictionary *immutableMetadata = (NSDictionary *)metadataRef;
-		
-		//NSLog(@"-- immutableMetadata %@", immutableMetadata);
-		
-		[metadata release];
-		metadata = [immutableMetadata mutableCopy];
+		NSDictionary *immutableMetadata = (__bridge NSDictionary *)metadataRef;
+        metadata = [immutableMetadata mutableCopy];
 		CFRelease(metadataRef);
 	}
     
@@ -314,19 +306,19 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 
 	NSString *fileModDateString = fileAttributes ? [[fileAttributes valueForKey:NSFileModificationDate] description] : @"";
 	
-	return [NSString stringWithFormat:@"addPoint(\"h%d\", %@, %@, \"%@\", \"%@\", \"%@\", %d);", [self hash], latitude, longitude, fileName, filePath, fileModDateString, 0];
+	return [NSString stringWithFormat:@"addPoint(\"h%lu\", %@, %@, \"%@\", \"%@\", \"%@\", %d);", [self hash], latitude, longitude, fileName, filePath, fileModDateString, 0];
 }
 
 - (NSString *)jsRemovePoint {
-	return [NSString stringWithFormat:@"removePoint(\"h%d\");", [self hash]];
+	return [NSString stringWithFormat:@"removePoint(\"h%lu\");", [self hash]];
 }
 
 - (NSString *)jsShowPoint {
-	return [NSString stringWithFormat:@"showPoint(\"h%d\");", [self hash]];
+	return [NSString stringWithFormat:@"showPoint(\"h%lu\");", (unsigned long)[self hash]];
 }
 
 - (NSString *)jsHidePoint {
-	return [NSString stringWithFormat:@"hidePoint(\"h%d\");", [self hash]];
+	return [NSString stringWithFormat:@"hidePoint(\"h%lu\");", [self hash]];
 }
 
 - (void)setUserComment:(NSString *)comment {
@@ -342,7 +334,6 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 	}
 	[exifData setObject:comment forKey:(NSString *)kCGImagePropertyExifUserComment];
 	[metadata setObject:exifData forKey:(NSString *)kCGImagePropertyExifDictionary];
-	[exifData release];
 	[self didChangeValueForKey:@"exif"];
 	[self didChangeValueForKey:@"userComment"];
 	
@@ -366,7 +357,6 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 	}
 	[iptcDict setObject:keywords forKey:(NSString *)kCGImagePropertyIPTCKeywords];
 	[metadata setObject:iptcDict forKey:(NSString *)kCGImagePropertyIPTCDictionary];
-	[iptcDict release];
 	[self didChangeValueForKey:@"keywords"];
 	
 	BOOL success = [self saveSourceWithMetadata];
@@ -402,7 +392,7 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 
 - (NSImage *)image {
     //int orientationDegrees = [self orientationDegrees];
-	return [[[[NSImage alloc] initByReferencingFile:path] autorelease] rotatedWithAngle:0];
+	return [[[NSImage alloc] initByReferencingFile:path] rotatedWithAngle:0];
 }
 
 // just to appear to be KVC compliant, useful when droping an image on the imageView

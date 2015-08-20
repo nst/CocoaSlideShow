@@ -22,14 +22,9 @@ static NSComparisonResult naturalCompare( CSSImageInfo *img1, CSSImageInfo *img2
 								  @"ico", @"icns",  @"bmp", @"bmpf",
 								  @"dng", @"cr2", @"crw", @"fpx", @"fpix", @"raf", @"dcr", @"ptng", @"pnt", @"mac", @"mrw", @"nef",
 								  @"orf", @"exr", @"psd", @"qti", @"qtif", @"hdr", @"sgi", @"srf", @"targa", @"tga", @"cur", @"xbm", nil];
-	[allowedExtensions retain];
 	
 }
 
-- (void)dealloc {
-	[allowedExtensions release];
-	[super dealloc];
-}
 
 - (NSUndoManager *)undoManager {
 	return [cocoaSlideShow undoManager];
@@ -44,7 +39,7 @@ static NSComparisonResult naturalCompare( CSSImageInfo *img1, CSSImageInfo *img2
 		}
 	}
 
-	return [flaggedIndexes autorelease];
+	return flaggedIndexes;
 }
 
 - (void)flagIndexes:(NSIndexSet *)indexSet {
@@ -183,7 +178,7 @@ static NSComparisonResult naturalCompare( CSSImageInfo *img1, CSSImageInfo *img2
 	return NO;
 }
 
-- (IBAction)openGoogleMap:(id)sender {
+- (IBAction)openMap:(id)sender {
 	if(![[self selectedObjects] count]) return;
 	CSSImageInfo *i = [[self selectedObjects] lastObject];
 	NSURL *url = [i googleMapsURL];

@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		030461610C75158100D70803 /* NSFileManager+CSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 030461600C75158100D70803 /* NSFileManager+CSS.m */; };
 		030463F10C75347700D70803 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 030463F00C75347700D70803 /* Credits.html */; };
-		032F081B0C542D820037F590 /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 032F081A0C542D820037F590 /* AppleRemote.m */; };
 		033804240C86084300439E5A /* ImagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033804230C86084300439E5A /* ImagesController.m */; };
 		033F91E31012ACF8004AEBA0 /* NSImage+CSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 033F91E21012ACF8004AEBA0 /* NSImage+CSS.m */; };
 		03458E5A0C81CA5300385D93 /* NSString+CSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 03458E590C81CA5300385D93 /* NSString+CSS.m */; };
 		034CA91D0DEB72CD00460991 /* Flagged.png in Resources */ = {isa = PBXBuildFile; fileRef = 034CA91B0DEB72CD00460991 /* Flagged.png */; };
 		034CA91E0DEB72CD00460991 /* FlaggedHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 034CA91C0DEB72CD00460991 /* FlaggedHeader.png */; };
-		034F0B2D138EE5D000A98D10 /* Epeg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034F0B2C138EE5D000A98D10 /* Epeg.framework */; };
 		034FC8780EBFB09C00BE42CA /* gmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 034FC8770EBFB09C00BE42CA /* gmap.png */; };
 		03677B9E0E3A45C600524B59 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 03677B950E3A45C500524B59 /* right.png */; };
 		03677B9F0E3A45C600524B59 /* slideshow.png in Resources */ = {isa = PBXBuildFile; fileRef = 03677B960E3A45C500524B59 /* slideshow.png */; };
@@ -27,8 +25,6 @@
 		03677BA50E3A45C600524B59 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 03677B9C0E3A45C500524B59 /* folder.png */; };
 		03677BA60E3A45C600524B59 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 03677B9D0E3A45C600524B59 /* add.png */; };
 		0367A7FA0C56CA6600BD57E8 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0367A7F90C56CA6600BD57E8 /* IOKit.framework */; };
-		036D55130C712BFC004A8236 /* HIDRemoteControlDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 036D55120C712BFC004A8236 /* HIDRemoteControlDevice.m */; };
-		036D55170C712C1B004A8236 /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 036D55160C712C1B004A8236 /* RemoteControl.m */; };
 		036D5C2F0C7269D0004A8236 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036D5C2E0C7269D0004A8236 /* Carbon.framework */; };
 		037D95D40DCDD8BB00E8DEB7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037D95D20DCDD8BB00E8DEB7 /* MainMenu.xib */; };
 		037D96190DCDDDCF00E8DEB7 /* AppDelegate+Toolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 037D96180DCDDDCF00E8DEB7 /* AppDelegate+Toolbar.m */; };
@@ -41,14 +37,13 @@
 		039B5A590ECE281600D7C02C /* CSSMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039B5A580ECE281600D7C02C /* CSSMapController.m */; };
 		03A122E30EC224F60076DF63 /* CSSImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A122E20EC224F60076DF63 /* CSSImageView.m */; };
 		03A126B10EC2496C0076DF63 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A126B00EC2496C0076DF63 /* WebKit.framework */; };
-		03A127EB0EC252140076DF63 /* gmap.html in Resources */ = {isa = PBXBuildFile; fileRef = 03A127EA0EC252140076DF63 /* gmap.html */; };
 		03A3F4410C77D97E009AD69D /* CSSWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A3F4400C77D97E009AD69D /* CSSWindow.m */; };
 		03A3F55C0C786878009AD69D /* CocoaSlideShow.icns in Resources */ = {isa = PBXBuildFile; fileRef = 03A3F55B0C786878009AD69D /* CocoaSlideShow.icns */; };
 		03B1BB110C5173B40032C03F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B1BB100C5173B40032C03F /* AppDelegate.m */; };
 		03C710BE100BA1CE0050FA48 /* CSSBorderlessWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C710BD100BA1CE0050FA48 /* CSSBorderlessWindow.m */; };
 		03DA06480C805F0B009D508F /* CSSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DA06470C805F0B009D508F /* CSSImageInfo.m */; };
+		03EF78441B85DD6700DAD4AA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EF78431B85DD6700DAD4AA /* MapKit.framework */; };
 		5F4535E6135C5BD400CC3980 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4535E5135C5BD400CC3980 /* Quartz.framework */; };
-		5F4FBF0D140690DE0070656D /* Epeg.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 034F0B2C138EE5D000A98D10 /* Epeg.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -61,7 +56,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5F4FBF0D140690DE0070656D /* Epeg.framework in Copy Frameworks */,
 				037F6A5B100A2C8B0071E2A9 /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -73,8 +67,6 @@
 		0304615F0C75158100D70803 /* NSFileManager+CSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+CSS.h"; sourceTree = "<group>"; };
 		030461600C75158100D70803 /* NSFileManager+CSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CSS.m"; sourceTree = "<group>"; };
 		030463F00C75347700D70803 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
-		032F08190C542D820037F590 /* AppleRemote.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AppleRemote.h; sourceTree = "<group>"; };
-		032F081A0C542D820037F590 /* AppleRemote.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AppleRemote.m; sourceTree = "<group>"; };
 		033804220C86084300439E5A /* ImagesController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ImagesController.h; sourceTree = "<group>"; };
 		033804230C86084300439E5A /* ImagesController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ImagesController.m; sourceTree = "<group>"; };
 		033F91E11012ACF8004AEBA0 /* NSImage+CSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+CSS.h"; sourceTree = "<group>"; };
@@ -95,10 +87,6 @@
 		03677B9C0E3A45C500524B59 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
 		03677B9D0E3A45C600524B59 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		0367A7F90C56CA6600BD57E8 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		036D55110C712BFC004A8236 /* HIDRemoteControlDevice.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = HIDRemoteControlDevice.h; sourceTree = "<group>"; };
-		036D55120C712BFC004A8236 /* HIDRemoteControlDevice.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = HIDRemoteControlDevice.m; sourceTree = "<group>"; };
-		036D55150C712C1B004A8236 /* RemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = RemoteControl.h; sourceTree = "<group>"; };
-		036D55160C712C1B004A8236 /* RemoteControl.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = RemoteControl.m; sourceTree = "<group>"; };
 		036D5C2E0C7269D0004A8236 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		037D95D30DCDD8BB00E8DEB7 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		037D96170DCDDDCF00E8DEB7 /* AppDelegate+Toolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Toolbar.h"; sourceTree = "<group>"; };
@@ -114,7 +102,6 @@
 		03A122E10EC224F60076DF63 /* CSSImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSImageView.h; sourceTree = "<group>"; };
 		03A122E20EC224F60076DF63 /* CSSImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSImageView.m; sourceTree = "<group>"; };
 		03A126B00EC2496C0076DF63 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
-		03A127EA0EC252140076DF63 /* gmap.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = gmap.html; sourceTree = "<group>"; };
 		03A3F43F0C77D97E009AD69D /* CSSWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CSSWindow.h; sourceTree = "<group>"; };
 		03A3F4400C77D97E009AD69D /* CSSWindow.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = CSSWindow.m; sourceTree = "<group>"; };
 		03A3F55B0C786878009AD69D /* CocoaSlideShow.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = CocoaSlideShow.icns; sourceTree = "<group>"; };
@@ -124,6 +111,7 @@
 		03C710BD100BA1CE0050FA48 /* CSSBorderlessWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSBorderlessWindow.m; sourceTree = "<group>"; };
 		03DA06460C805F0B009D508F /* CSSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSImageInfo.h; sourceTree = "<group>"; };
 		03DA06470C805F0B009D508F /* CSSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSImageInfo.m; sourceTree = "<group>"; };
+		03EF78431B85DD6700DAD4AA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -141,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EF78441B85DD6700DAD4AA /* MapKit.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				0367A7FA0C56CA6600BD57E8 /* IOKit.framework in Frameworks */,
 				036D5C2F0C7269D0004A8236 /* Carbon.framework in Frameworks */,
@@ -148,30 +137,15 @@
 				037F69C1100A29BC0071E2A9 /* Sparkle.framework in Frameworks */,
 				037F6A21100A2BA00071E2A9 /* Sparkle.framework in Frameworks */,
 				5F4535E6135C5BD400CC3980 /* Quartz.framework in Frameworks */,
-				034F0B2D138EE5D000A98D10 /* Epeg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		031AD9AA0DBF854D00799D5C /* Remote Control */ = {
-			isa = PBXGroup;
-			children = (
-				036D55110C712BFC004A8236 /* HIDRemoteControlDevice.h */,
-				036D55120C712BFC004A8236 /* HIDRemoteControlDevice.m */,
-				032F08190C542D820037F590 /* AppleRemote.h */,
-				032F081A0C542D820037F590 /* AppleRemote.m */,
-				036D55150C712C1B004A8236 /* RemoteControl.h */,
-				036D55160C712C1B004A8236 /* RemoteControl.m */,
-			);
-			name = "Remote Control";
-			sourceTree = "<group>";
-		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				031AD9AA0DBF854D00799D5C /* Remote Control */,
 				03A122E10EC224F60076DF63 /* CSSImageView.h */,
 				03A122E20EC224F60076DF63 /* CSSImageView.m */,
 				03A3F43F0C77D97E009AD69D /* CSSWindow.h */,
@@ -272,7 +246,6 @@
 				8D1107310486CEB800E47090 /* Info.plist */,
 				037D95D20DCDD8BB00E8DEB7 /* MainMenu.xib */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
-				03A127EA0EC252140076DF63 /* gmap.html */,
 				037F66C11008E7FD0071E2A9 /* UserDefaults.plist */,
 				037F672C1008EDAE0071E2A9 /* Localizable.strings */,
 			);
@@ -282,6 +255,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03EF78431B85DD6700DAD4AA /* MapKit.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -315,6 +289,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CocoaSlideShow" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
@@ -355,7 +331,6 @@
 				03677BA50E3A45C600524B59 /* folder.png in Resources */,
 				03677BA60E3A45C600524B59 /* add.png in Resources */,
 				034FC8780EBFB09C00BE42CA /* gmap.png in Resources */,
-				03A127EB0EC252140076DF63 /* gmap.html in Resources */,
 				037F66C21008E7FD0071E2A9 /* UserDefaults.plist in Resources */,
 				037F672D1008EDAE0071E2A9 /* Localizable.strings in Resources */,
 				037F6B27100A34130071E2A9 /* css_dsa_pub.pem in Resources */,
@@ -371,9 +346,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				03B1BB110C5173B40032C03F /* AppDelegate.m in Sources */,
-				032F081B0C542D820037F590 /* AppleRemote.m in Sources */,
-				036D55130C712BFC004A8236 /* HIDRemoteControlDevice.m in Sources */,
-				036D55170C712C1B004A8236 /* RemoteControl.m in Sources */,
 				030461610C75158100D70803 /* NSFileManager+CSS.m in Sources */,
 				03A3F4410C77D97E009AD69D /* CSSWindow.m in Sources */,
 				03DA06480C805F0B009D508F /* CSSImageInfo.m in Sources */,
@@ -422,8 +394,8 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
@@ -433,17 +405,15 @@
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = CocoaSlideShow;
-				SDKROOT = macosx10.7;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -452,8 +422,8 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
@@ -463,15 +433,13 @@
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = CocoaSlideShow;
-				SDKROOT = macosx10.7;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -479,7 +447,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -487,9 +455,9 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH_ACTUAL)";
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.7;
+				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wunreachable-code";
 			};
 			name = Debug;
@@ -497,15 +465,14 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PREBINDING = NO;
-				SDKROOT = macosx10.7;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
