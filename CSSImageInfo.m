@@ -463,13 +463,23 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 	}
 }
 
-- (void)moveToTrash {
+- (BOOL)moveToTrash {
+    
+    AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
+    
+    NSUndoManager *undoManager = [appDelegate undoManager];
+    [undoManager registerUndoWithTarget:appDelegate
+                               selector:@selector(moveFromTrashToPath:)
+                                 object:path];
+    [undoManager setActionName:@"Move To Trash"];
+    
 	NSString *trashPath = [[@"~/.Trash/" stringByExpandingTildeInPath] stringByAppendingPathComponent:[path lastPathComponent]];
 	NSError *error = nil;
 	BOOL success = [[NSFileManager defaultManager] moveItemAtPath:path toPath:trashPath error:&error];
 	if(success == NO) {
 		NSLog(@"-- cannot move:%@ to:%@, error: %@", path, trashPath, error);
 	}
+    return success;
 }
 
 - (void)revealInFinder {

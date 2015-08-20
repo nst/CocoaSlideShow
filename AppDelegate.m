@@ -26,7 +26,7 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 	takeFilesFromDefault = YES;
 		
 	undoManager = [[NSUndoManager alloc] init];
-	[undoManager setLevelsOfUndo:20];
+	[undoManager setLevelsOfUndo:100];
 
 	return self;
 }
@@ -85,9 +85,9 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 	
 	NSTableColumn *flagColumn = [tableView tableColumnWithIdentifier:@"flag"];
 	NSImage *flagHeaderImage = [NSImage imageNamed:@"FlaggedHeader.png"];
-	NSImageCell *flagHeaderImageCell = [flagColumn headerCell];
+	NSImageCell *flagHeaderImageCell = (NSImageCell *)[flagColumn headerCell];
 	[flagHeaderImageCell setImage:flagHeaderImage];
-	[flagColumn setHeaderCell:flagHeaderImageCell];
+	[flagColumn setHeaderCell:(id)flagHeaderImageCell];
 	
 	[tableView setDraggingSourceOperationMask:NSDragOperationCopy forLocal:NO];
 	[tableView setDraggingSourceOperationMask:NSDragOperationNone forLocal:YES];
@@ -302,6 +302,24 @@ static NSString *const kSlideshowIsFullscreen = @"SlideshowIsFullscreen";
 	} else {
 		[self showMap];
 	}
+}
+
+// called to undo move to trash
+- (BOOL)moveFromTrashToPath:(NSString *)originalPath {
+    
+    NSString *trashPath = [[@"~/.Trash/" stringByExpandingTildeInPath] stringByAppendingPathComponent:[originalPath lastPathComponent]];
+    NSError *error = nil;
+    BOOL success = [[NSFileManager defaultManager] moveItemAtPath:trashPath toPath:originalPath error:&error];
+    if(success == NO) {
+        NSLog(@"-- cannot move:%@ to:%@, error: %@", trashPath, originalPath, error);
+    }
+    
+    CSSImageInfo *imageInfo = [CSSImageInfo containerWithPath:originalPath];
+    if(imageInfo) {
+        [imagesController addObject:imageInfo];
+    }
+    
+    return success;
 }
 
 #pragma mark NSApplication Delegates
