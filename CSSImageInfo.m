@@ -115,9 +115,10 @@ static NSSet *keyPathsForValuesAffectingFlagIcon = nil;
 
 // FIXME: not thread safe, source might be read while export and released too early while displaying map, @synchronized seems to kill performance though
 - (BOOL)loadSource {
-	BOOL isMap = [[[NSApp delegate] valueForKey:@"isMap"] boolValue];
-	BOOL isExporting = [[[NSApp delegate] valueForKey:@"isExporting"] boolValue];
-	BOOL multipleImagesSelected = [[[NSApp delegate] valueForKeyPath:@"imagesController.multipleImagesSelected"] boolValue];
+    NSObject *appDelegate = [NSApp delegate];
+	BOOL isMap = [[appDelegate valueForKey:@"isMap"] boolValue];
+	BOOL isExporting = [[appDelegate valueForKey:@"isExporting"] boolValue];
+	BOOL multipleImagesSelected = [[appDelegate valueForKeyPath:@"imagesController.multipleImagesSelected"] boolValue];
 	BOOL readOnMultiSelect = [[NSUserDefaults standardUserDefaults] boolForKey:kMultipleSelectionAllowsEdition];
 
 	if(!readOnMultiSelect && multipleImagesSelected && !isMap && !isExporting) {

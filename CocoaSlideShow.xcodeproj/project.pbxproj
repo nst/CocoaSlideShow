@@ -30,9 +30,6 @@
 		037D96190DCDDDCF00E8DEB7 /* AppDelegate+Toolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 037D96180DCDDDCF00E8DEB7 /* AppDelegate+Toolbar.m */; };
 		037F66C21008E7FD0071E2A9 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 037F66C11008E7FD0071E2A9 /* UserDefaults.plist */; };
 		037F672D1008EDAE0071E2A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 037F672C1008EDAE0071E2A9 /* Localizable.strings */; };
-		037F69C1100A29BC0071E2A9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037F69C0100A29BC0071E2A9 /* Sparkle.framework */; };
-		037F6A21100A2BA00071E2A9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037F69C0100A29BC0071E2A9 /* Sparkle.framework */; };
-		037F6A5B100A2C8B0071E2A9 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 037F69C0100A29BC0071E2A9 /* Sparkle.framework */; };
 		037F6B27100A34130071E2A9 /* css_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 037F6B26100A34130071E2A9 /* css_dsa_pub.pem */; };
 		039B5A590ECE281600D7C02C /* CSSMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039B5A580ECE281600D7C02C /* CSSMapController.m */; };
 		03A122E30EC224F60076DF63 /* CSSImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A122E20EC224F60076DF63 /* CSSImageView.m */; };
@@ -41,6 +38,8 @@
 		03A3F55C0C786878009AD69D /* CocoaSlideShow.icns in Resources */ = {isa = PBXBuildFile; fileRef = 03A3F55B0C786878009AD69D /* CocoaSlideShow.icns */; };
 		03B1BB110C5173B40032C03F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B1BB100C5173B40032C03F /* AppDelegate.m */; };
 		03C710BE100BA1CE0050FA48 /* CSSBorderlessWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C710BD100BA1CE0050FA48 /* CSSBorderlessWindow.m */; };
+		03D7C6DA235C5E330086E718 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D7C6D8235C5D500086E718 /* Sparkle.framework */; };
+		03D7C6DB235C5E340086E718 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 03D7C6D8235C5D500086E718 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03DA06480C805F0B009D508F /* CSSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DA06470C805F0B009D508F /* CSSImageInfo.m */; };
 		03EF78441B85DD6700DAD4AA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EF78431B85DD6700DAD4AA /* MapKit.framework */; };
 		5F4535E6135C5BD400CC3980 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4535E5135C5BD400CC3980 /* Quartz.framework */; };
@@ -56,7 +55,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				037F6A5B100A2C8B0071E2A9 /* Sparkle.framework in Copy Frameworks */,
+				03D7C6DB235C5E340086E718 /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,7 +94,6 @@
 		037F672A1008EDA90071E2A9 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		037F67341008EDB60071E2A9 /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/Localizable.strings; sourceTree = "<group>"; };
 		037F67A11008F41E0071E2A9 /* French */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = French; path = French.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		037F69C0100A29BC0071E2A9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		037F6B26100A34130071E2A9 /* css_dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = css_dsa_pub.pem; sourceTree = "<group>"; };
 		039B5A570ECE281600D7C02C /* CSSMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSMapController.h; sourceTree = "<group>"; };
 		039B5A580ECE281600D7C02C /* CSSMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSMapController.m; sourceTree = "<group>"; };
@@ -109,6 +107,7 @@
 		03B1BB100C5173B40032C03F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		03C710BC100BA1CE0050FA48 /* CSSBorderlessWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSBorderlessWindow.h; sourceTree = "<group>"; };
 		03C710BD100BA1CE0050FA48 /* CSSBorderlessWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSBorderlessWindow.m; sourceTree = "<group>"; };
+		03D7C6D8235C5D500086E718 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		03DA06460C805F0B009D508F /* CSSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSImageInfo.h; sourceTree = "<group>"; };
 		03DA06470C805F0B009D508F /* CSSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSImageInfo.m; sourceTree = "<group>"; };
 		03EF78431B85DD6700DAD4AA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
@@ -132,10 +131,9 @@
 				03EF78441B85DD6700DAD4AA /* MapKit.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				0367A7FA0C56CA6600BD57E8 /* IOKit.framework in Frameworks */,
+				03D7C6DA235C5E330086E718 /* Sparkle.framework in Frameworks */,
 				036D5C2F0C7269D0004A8236 /* Carbon.framework in Frameworks */,
 				03A126B10EC2496C0076DF63 /* WebKit.framework in Frameworks */,
-				037F69C1100A29BC0071E2A9 /* Sparkle.framework in Frameworks */,
-				037F6A21100A2BA00071E2A9 /* Sparkle.framework in Frameworks */,
 				5F4535E6135C5BD400CC3980 /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,8 +173,8 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03D7C6D8235C5D500086E718 /* Sparkle.framework */,
 				034F0B2C138EE5D000A98D10 /* Epeg.framework */,
-				037F69C0100A29BC0071E2A9 /* Sparkle.framework */,
 				03A126B00EC2496C0076DF63 /* WebKit.framework */,
 				036D5C2E0C7269D0004A8236 /* Carbon.framework */,
 				0367A7F90C56CA6600BD57E8 /* IOKit.framework */,
@@ -396,12 +394,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CURRENT_PROJECT_VERSION = 0.8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
+					"$(PROJECT_DIR)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
@@ -411,9 +411,12 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.seriot.CocoaSlideShow;
 				PRODUCT_NAME = CocoaSlideShow;
 				SDKROOT = macosx;
+				USE_HEADERMAP = NO;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -424,12 +427,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CURRENT_PROJECT_VERSION = 0.8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
+					"$(PROJECT_DIR)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
@@ -437,9 +442,12 @@
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.seriot.CocoaSlideShow;
 				PRODUCT_NAME = CocoaSlideShow;
 				SDKROOT = macosx;
+				USE_HEADERMAP = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

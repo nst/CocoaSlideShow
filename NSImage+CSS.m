@@ -168,8 +168,8 @@ static inline double rad(int alpha) {return ((alpha * M_PI)/180);}
 	[graphicsContext setShouldAntialias: wasAntialiasing];
 	[graphicsContext setImageInterpolation: previousImageInterpolation];
 	[tmpImage unlockFocus];
-	[tmpImage setDataRetained: YES];
-	[tmpImage setScalesWhenResized: YES];
+//	[tmpImage setDataRetained: YES];
+//	[tmpImage setScalesWhenResized: YES];
 	
 	return tmpImage;
 }

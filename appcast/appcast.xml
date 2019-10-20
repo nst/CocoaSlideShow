@@ -113,6 +113,18 @@
             <pubDate>Thu, 23 December 2012 08:30:00 +0100</pubDate>
             <enclosure url="http://seriot.ch/software/desktop/CocoaSlideShow/CocoaSlideShow_6_0.app.zip" sparkle:version="0.6" length="749959" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCgkd6QIRPfkbDbIUPrDmRaWINvXQIUWZN73XTmy1cV4JBR2MTp3YZPeqU="/>
         </item>
+
+        <item>
+            <title>Version 0.7 (2 new features, Mac OS X 10.9 required)</title>
+            <description><![CDATA[
+<h2>New features</h2>
+<pre>
+- runs on macOS Catalina
+</pre>
+            ]]></description>
+            <pubDate>Sun, 23 October 2019 11:00:00 +0100</pubDate>
+            <enclosure url="http://seriot.ch/software/desktop/CocoaSlideShow/CocoaSlideShow_0_8.app.zip" sparkle:version="0.8" length="1910159" type="application/octet-stream" sparkle:dsaSignature="MCwCFDYmS1uXyyQU0PzRgz2oVGSlOGCgAhRIOkRNf7AQw/p06RxU2mfGZdNaww=="/>
+        </item>
         
     </channel>
 </rss>
