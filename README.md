@@ -5,7 +5,7 @@ CocoaSlideShow is a Mac OS X simple, fast image viewer, spiritual son of [Slides
 
 --
 
-Download [CocoaSlideShow 0.8](http://seriot.ch/software/desktop/CocoaSlideShow/CocoaSlideShow_0_80.app.zip) (OS X 10.9+, 754 KB)
+Download [CocoaSlideShow 0.8](http://seriot.ch/software/desktop/CocoaSlideShow/CocoaSlideShow_0_8.app.zip) (OS X 10.9+, 1.9 MB)
 
 --
 
